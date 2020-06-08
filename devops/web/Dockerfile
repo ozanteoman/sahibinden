@@ -15,7 +15,7 @@ RUN mkdir /sahibinden
 WORKDIR /sahibinden
 
 # Copy the current directory contents into the container at /music_service
-ADD . /sahbinden/
+ADD . /sahibinden/
 
 # Install any needed packages specified in requirements.txt
 RUN pip3 install --upgrade pip
