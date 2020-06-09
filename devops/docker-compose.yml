@@ -1,18 +1,6 @@
 version: '3'
 
 services:
-  sahibinden_web:
-    build:
-      context: ./../
-      dockerfile: devops/web/Dockerfile
-    command: bash -c "./devops/wait-for-it.sh sahibinden_db:5432 && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-    container_name: sahibinden_web
-    volumes:
-      - ./../:/sahibinden
-    ports:
-      - "8000:8000"
-    depends_on:
-      - sahibinden_db
   sahibinden_db:
     image: postgres:11.5
     container_name: sahibinden_db
