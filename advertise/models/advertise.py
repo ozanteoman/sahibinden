@@ -30,5 +30,14 @@ class Advertise(models.Model):
     status = models.PositiveIntegerField(choices=AdvertiseStatusChocies.CHOICES)
     visibility = models.PositiveIntegerField(choices=AdvertiseVisibilityChoices.CHOICES)
 
+    # collections
+    frontal = models.ManyToManyField(to="advertise.Frontal")
+    interior_feature = models.ManyToManyField(to="advertise.InteriorFeature")
+    exterior_feature = models.ManyToManyField(to="advertise.ExteriorFeature")
+    locality = models.ManyToManyField(to="advertise.Locality")
+    transportation = models.ManyToManyField(to="advertise.Transportation")
+    landscape = models.ManyToManyField(to="advertise.Landscape")
+    sutiable_for_disabled = models.ManyToManyField(to="advertise.SuitableForDisabled")
+
     def __str__(self):
         return f"{self.title}"
