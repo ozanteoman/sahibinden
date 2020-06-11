@@ -1,0 +1,1 @@
+from advertise.models.advertise import Advertise
