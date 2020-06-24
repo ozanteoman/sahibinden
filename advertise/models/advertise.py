@@ -12,6 +12,7 @@ from advertise.choices import (NumberOfRoomsChoices,
 
 
 class Advertise(models.Model):
+    owner = models.ForeignKey(to="advertise.User", on_delete=models.CASCADE, null=True)
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=500)
     price = models.PositiveIntegerField(default=0)
