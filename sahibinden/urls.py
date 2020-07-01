@@ -20,7 +20,7 @@ from advertise.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/', include('allauth.urls')),
-    path('index/', index)
+    path('auth/', include('allauth.urls')),
+    path('', index)
 
 ]
