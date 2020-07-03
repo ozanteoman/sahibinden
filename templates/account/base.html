@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Sahibinden</title>
+
+    <!-- Bootstrap -->
+    <link href="https://fonts.googleapis.com/css?family=Libre+Franklin:100,200,300,400,500,700" rel="stylesheet">
+
+    <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<div id="main">
+    <nav class="navbar navbar-expand-lg navbar-dark" id="menu">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html"><span class="font-weight-bold">sahibinden</span></a>
+
+        </div>
+    </nav>
+
+    <div id="content">
+        <div class="container">
+            <div class="row justify-content-md-center align-items-center">
+                <div class="col col-md-6  col-lg-5 col-xl-4">
+                    <ul class="nav nav-tabs tab-lg" role="tablist">
+                        <li role="presentation" class="nav-item"><a class="nav-link " href="{% url 'account_login' %}">Login</a></li>
+                        <li role="presentation" class="nav-item"><a class="nav-link active " href="{% url 'account_signup' %}">Register</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="login">
+                            {% block content %}
+                            {% endblock %}
+                        </div>
+                    </div>
+                    <div></div>
+                </div>
+
+                <div class="col-md-6 col-lg-5 col-xl-4">
+                    <div class="socal-login-buttons"><a href="#" class="btn btn-social btn-block btn-facebook"><i class="icon fa fa-facebook"></i> Continue with Facebook</a> <a href="#" class="btn btn-social btn-block btn-twitter"><i class="icon fa fa-twitter"></i> Continue with Twitter</a> <a href="#" class="btn btn-social btn-block btn-google"><i
+                            class="icon fa fa-google"></i> Continue with Google</a></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <button class="btn btn-primary btn-circle" id="to-top"><i class="fa fa-angle-up"></i></button>
+</div>
+
+</body>
+</html>

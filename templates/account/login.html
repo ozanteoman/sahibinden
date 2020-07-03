@@ -1,0 +1,27 @@
+{% extends 'account/base.html' %}
+{% load widget_tweaks %}
+
+
+{% block content %}
+    <form class="login" method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        {% for error in form.non_field_errors %}
+            <span class="text-danger"> {{ error }} </span>
+        {% endfor %}
+        {% for field in form %}
+            <div class="form-group">
+
+                <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                {{ field|add_class:'form-control form-control-lg' }}
+                {% for error in field.errors %}
+                    <span class="text-danger">{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% endfor %}
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+        {% endif %}
+        <button class="btn btn-primary btn-lg" type="submit">Login</button>
+    </form>
+
+{% endblock %}
