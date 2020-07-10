@@ -32,8 +32,8 @@
             <div class="row justify-content-md-center align-items-center">
                 <div class="col col-md-6  col-lg-5 col-xl-4">
                     <ul class="nav nav-tabs tab-lg" role="tablist">
-                        <li role="presentation" class="nav-item"><a class="nav-link " href="{% url 'account_login' %}">Login</a></li>
-                        <li role="presentation" class="nav-item"><a class="nav-link active " href="{% url 'account_signup' %}">Register</a></li>
+                        <li role="presentation" class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "account_login" %} active {% endif %} " href="{% url 'account_login' %}">Login</a></li>
+                        <li role="presentation" class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "account_signup" %} active {% endif %} " href="{% url 'account_signup' %}">Register</a></li>
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="login">
@@ -45,7 +45,8 @@
                 </div>
 
                 <div class="col-md-6 col-lg-5 col-xl-4">
-                    <div class="socal-login-buttons"><a href="{% provider_login_url "facebook" method="oauth2" %}" class="btn btn-social btn-block btn-facebook"><i class="icon fa fa-facebook"></i> Continue with Facebook</a> <a href="#" class="btn btn-social btn-block btn-twitter"><i class="icon fa fa-twitter"></i> Continue with Twitter</a> <a href="#" class="btn btn-social btn-block btn-google"><i
+                    <div class="socal-login-buttons"><a href="{% provider_login_url "facebook" method="oauth2" %}" class="btn btn-social btn-block btn-facebook"><i class="icon fa fa-facebook"></i> Continue with Facebook</a> <a href="#" class="btn btn-social btn-block btn-twitter"><i class="icon fa fa-twitter"></i> Continue with Twitter</a> <a
+                            href="#" class="btn btn-social btn-block btn-google"><i
                             class="icon fa fa-google"></i> Continue with Google</a></div>
                 </div>
             </div>

@@ -8,7 +8,7 @@
                     <span class="user-image" style="background-image:url({{ request.user.profile_image }});"></span> Selam, {{ request.user.first_name }}
                 </a>
                 <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">Şifre Değişikliği</a>
+                    <a href="{% url 'account_change_password' %}" class="dropdown-item">Şifre Değişikliği</a>
                     <a href="#" class="dropdown-item">Çıkış Yap</a>
                 </div>
             </li>
