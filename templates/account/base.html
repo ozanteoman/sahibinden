@@ -32,8 +32,8 @@
             <div class="row justify-content-md-center align-items-center">
                 <div class="col col-md-6  col-lg-5 col-xl-4">
                     <ul class="nav nav-tabs tab-lg" role="tablist">
-                        <li role="presentation" class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "account_login" %} active {% endif %} " href="{% url 'account_login' %}">Login</a></li>
-                        <li role="presentation" class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "account_signup" %} active {% endif %} " href="{% url 'account_signup' %}">Register</a></li>
+                        <li role="presentation" class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "account_login" %} active {% endif %} " href="{% url 'account_login' %}">Giriş Yap</a></li>
+                        <li role="presentation" class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == "account_signup" %} active {% endif %} " href="{% url 'account_signup' %}">Kaydol</a></li>
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane active" id="login">

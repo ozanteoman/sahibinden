@@ -143,6 +143,7 @@ ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_AUTHENTICATION_METHOD = "email"
 LOGIN_REDIRECT_URL = "/"
 ACCOUNT_SESSION_REMEMBER = False
+ACCOUNT_LOGOUT_ON_GET = True
 ACCOUNT_FORMS = {'signup': 'advertise.forms.CustomSignupForm',
                  }
 
