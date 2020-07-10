@@ -1,0 +1,23 @@
+<a class="navbar-brand" href="#"><span class="font-weight-bold">sahibinden</span></a>
+<div class="collapse navbar-collapse" id="menu-content">
+    {% if request.user.is_authenticated %}
+        <ul class="navbar-nav ml-auto">
+
+            <li class="nav-item dropdown user-account">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="user-image" style="background-image:url({{ request.user.profile_image }});"></span> Selam, {{ request.user.first_name }}
+                </a>
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item">Şifre Değişikliği</a>
+                    <a href="#" class="dropdown-item">Çıkış Yap</a>
+                </div>
+            </li>
+            <li class="nav-item"><a class="nav-link nav-btn" href="#"><span><i class="fa fa-plus" aria-hidden="true"></i>Ücretsiz İlan Ver</span></a></li>
+        </ul>
+    {% else %}
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link " href="{% url 'account_login' %}"><span>Giriş Yap</span></a></li>
+            <li class="nav-item"><a class="nav-link " href="{% url 'account_signup' %}"><span>Üye Ol</span></a></li>
+        </ul>
+    {% endif %}
+</div>

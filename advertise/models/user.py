@@ -22,3 +22,7 @@ class User(AbstractUser):
 
     class Meta:
         verbose_name = "User"
+
+    @property
+    def profile_image(self):
+        return "/static/img/profile-placeholder.jpg"
