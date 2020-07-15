@@ -11,7 +11,8 @@
                                 <div class="sidebar_inner">
                                     <div class="list-group no-border list-unstyled">
                                         <span class="list-group-item heading">Hesabı Yönet</span>
-                                        <a href="{% url 'account_change_password' %}" class="list-group-item active"><i class="fa fa-fw fa-lock"></i>Şifre Değiştir</a>
+                                        <a href="{% url 'retrieve' %}" class="list-group-item {% if request.resolver_match.url_name == "retrieve" %} active {% endif %}  "><i class="fa fa-fw fa-pencil"></i>Kişisel Bilgiler</a>
+                                        <a href="{% url 'account_change_password' %}" class="list-group-item {% if request.resolver_match.url_name == "account_change_password" %} active {% endif %} "><i class="fa fa-fw fa-lock"></i>Şifre Değiştir</a>
                                     </div>
                                 </div>
                             </div>
