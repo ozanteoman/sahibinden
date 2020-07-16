@@ -8,6 +8,7 @@
                     <span class="user-image" style="background-image:url({{ request.user.profile_image }});"></span> Selam, {{ request.user.first_name }}
                 </a>
                 <div class="dropdown-menu">
+                    <a href="{% url 'retrieve' request.user.username %}" class="dropdown-item">Kişisel Bilgiler</a>
                     <a href="{% url 'account_change_password' %}" class="dropdown-item">Şifre Değişikliği</a>
                     <a href="{% url 'account_logout' %}" class="dropdown-item">Çıkış Yap</a>
                 </div>

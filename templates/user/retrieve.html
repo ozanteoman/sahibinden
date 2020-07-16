@@ -1,3 +1,87 @@
 {% extends 'user/base.html' %}
 
 {% block sub_title %} Kişisel Bilgileri {% endblock %}
+
+
+{% block sub_content %}
+    <div class="font-weight-bold">
+        <div class="row">
+            <div class="col-4">
+                <span>Kullanıcı Adı</span>
+            </div>
+            <div class="col-8">
+                <span>{{ username }}</span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-4">
+                <span>Ad Soyad</span>
+            </div>
+            <div class="col-8">
+                <span>{{ full_name }}</span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-4">
+                <span>Doğum Tarihi</span>
+            </div>
+            <div class="col-8">
+                <span>{{ birthday }}</span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-4">
+                <span>Cinsiyet</span>
+            </div>
+            <div class="col-8">
+                <span>{{ gender }}</span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-4">
+                <span>Medeni Hali</span>
+            </div>
+            <div class="col-8">
+                <span>{{ marital_status }}</span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-4">
+                <span>Eğitim Durumu</span>
+            </div>
+            <div class="col-8">
+                <span>{{ educational_status }}</span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-4">
+                <span>Meslek</span>
+            </div>
+            <div class="col-8">
+                <span>{{ profession }}</span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-4">
+                <span>İlgi Alanları</span>
+            </div>
+            <div class="col-8">
+                <span>{{ interests }}</span>
+            </div>
+        </div>
+        <div class="row mt-4">
+            <div class="col-4">
+                <span>Telefon Numrası</span>
+            </div>
+            <div class="col-8">
+                <span>{{ phone_number }}</span>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-12">
+                <a href="#" class="float-right btn btn-outline-info">Düzenle</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
