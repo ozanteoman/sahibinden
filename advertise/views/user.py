@@ -1,6 +1,12 @@
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
 
 from advertise.models import User
+
+
+def edit_user(request, username):
+    user = get_object_or_404(User, username=username)
+    return JsonResponse(data={'username': user.username})
 
 
 def retrieve(request, username):

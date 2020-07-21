@@ -1,5 +1,22 @@
 {% extends 'user/base.html' %}
 
+{% block static_contanier %}
+    <script>
+        $(document).ready(function () {
+            $("#retrieve-edit-form").click(function (e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $url = $this.attr('edit-url');
+                $.getJSON($url, null, function (data, status, jqXGR) {
+                    $this.closest('.font-weight-bold').html(data.username);
+                })
+
+            })
+        })
+    </script>
+{% endblock %}
+
+
 {% block sub_title %} Kişisel Bilgileri {% endblock %}
 
 
@@ -80,7 +97,7 @@
 
         <div class="row mt-4">
             <div class="col-12">
-                <a href="#" class="float-right btn btn-outline-info">Düzenle</a>
+                <a href="#" edit-url="{% url 'edit-user' request.user.username %}" id="retrieve-edit-form" class="float-right btn btn-outline-info">Düzenle</a>
             </div>
         </div>
     </div>

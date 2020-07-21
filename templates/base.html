@@ -16,6 +16,13 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
 
+    <script src="{% static 'lib/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'lib/bootstrap/js/bootstrap.min.js' %}"></script>
+
+    {% block static_contanier %}
+    {% endblock %}
+
+
 </head>
 <body>
 <div id="main">
@@ -24,13 +31,8 @@
             {% include 'includes/base_navbar.html' %}
         </div>
     </nav>
-    <div class="container">
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}" role="alert">
-                {{ message }}
-            </div>
-        {% endfor %}
-    </div>
+
+    {% include 'includes/messages.html' %}
 
     {% block content %}
     {% endblock %}
