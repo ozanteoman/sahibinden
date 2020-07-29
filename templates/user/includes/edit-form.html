@@ -1,0 +1,21 @@
+{% load widget_tweaks %}
+
+<form method="POST" action="{% url 'edit-user' request.user.username %}">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="form-group">
+
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {% if field.name == "gender" %}
+                {{ field|add_class:'gender list-inline' }}
+            {% elif field.name == "interests" %}
+                {{ field|add_class:'interests list-inline' }}
+            {% else %}
+                {{ field|add_class:'form-control' }}
+            {% endif %}
+            {% for error in field.errors %}
+                <span class="text-danger">{{ error }}</span>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</form>

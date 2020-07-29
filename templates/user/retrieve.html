@@ -1,14 +1,38 @@
 {% extends 'user/base.html' %}
 
 {% block static_contanier %}
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css"/>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <style type="text/css">
+        ul.interests li {
+            display: inline-block;
+            width: 24.5%;
+        }
+
+        ul.gender li {
+            display: inline-block;
+            width: 24.5%;
+        }
+    </style>
+
+
     <script>
         $(document).ready(function () {
+
+
             $("#retrieve-edit-form").click(function (e) {
                 e.preventDefault();
                 var $this = $(this);
                 var $url = $this.attr('edit-url');
                 $.getJSON($url, null, function (data, status, jqXGR) {
-                    $this.closest('.font-weight-bold').html(data.username);
+                    $this.closest('#user_container').html(data.string_form);
+                    $("#id_birthday").datetimepicker({
+                        format: 'DD/MM/YYYY',
+                        locale: "tr"
+                    });
                 })
 
             })
@@ -21,84 +45,7 @@
 
 
 {% block sub_content %}
-    <div class="font-weight-bold">
-        <div class="row">
-            <div class="col-4">
-                <span>Kullanıcı Adı</span>
-            </div>
-            <div class="col-8">
-                <span>{{ username }}</span>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-4">
-                <span>Ad Soyad</span>
-            </div>
-            <div class="col-8">
-                <span>{{ full_name }}</span>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-4">
-                <span>Doğum Tarihi</span>
-            </div>
-            <div class="col-8">
-                <span>{{ birthday }}</span>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-4">
-                <span>Cinsiyet</span>
-            </div>
-            <div class="col-8">
-                <span>{{ gender }}</span>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-4">
-                <span>Medeni Hali</span>
-            </div>
-            <div class="col-8">
-                <span>{{ marital_status }}</span>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-4">
-                <span>Eğitim Durumu</span>
-            </div>
-            <div class="col-8">
-                <span>{{ educational_status }}</span>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-4">
-                <span>Meslek</span>
-            </div>
-            <div class="col-8">
-                <span>{{ profession }}</span>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-4">
-                <span>İlgi Alanları</span>
-            </div>
-            <div class="col-8">
-                <span>{{ interests }}</span>
-            </div>
-        </div>
-        <div class="row mt-4">
-            <div class="col-4">
-                <span>Telefon Numrası</span>
-            </div>
-            <div class="col-8">
-                <span>{{ phone_number }}</span>
-            </div>
-        </div>
-
-        <div class="row mt-4">
-            <div class="col-12">
-                <a href="#" edit-url="{% url 'edit-user' request.user.username %}" id="retrieve-edit-form" class="float-right btn btn-outline-info">Düzenle</a>
-            </div>
-        </div>
+    <div id="user_container" class="font-weight-bold">
+        {% include 'user/includes/retrieve.html' %}
     </div>
 {% endblock %}

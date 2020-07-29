@@ -1,12 +1,16 @@
 from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404
+from django.template.loader import render_to_string
 
+from advertise.forms import UpdateUserForm
 from advertise.models import User
 
 
 def edit_user(request, username):
     user = get_object_or_404(User, username=username)
-    return JsonResponse(data={'username': user.username})
+    form = UpdateUserForm(instance=user)
+    string_form = render_to_string('user/includes/edit-form.html', context={'form': form}, request=request)
+    return JsonResponse(data={'string_form': string_form})
 
 
 def retrieve(request, username):
