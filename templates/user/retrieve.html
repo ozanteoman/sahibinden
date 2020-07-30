@@ -22,8 +22,7 @@
     <script>
         $(document).ready(function () {
 
-
-            $("#retrieve-edit-form").click(function (e) {
+            $(this).on('click', "#retrieve-edit-form", function (e) {
                 e.preventDefault();
                 var $this = $(this);
                 var $url = $this.attr('edit-url');
@@ -34,8 +33,19 @@
                         locale: "tr"
                     });
                 })
+            });
 
-            })
+
+            $(this).on('click', "#user_update_cancel_button", function (e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $url = $this.attr('href');
+                $.getJSON($url, null, function (data, status, jqXGR) {
+                    $this.closest('#user_container').html(data.user_retrieve);
+                })
+            });
+
+
         })
     </script>
 {% endblock %}

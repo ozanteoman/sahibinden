@@ -18,4 +18,9 @@
             {% endfor %}
         </div>
     {% endfor %}
+    <div class="form-group float-right">
+        <a href="#" class="btn btn-primary">Kaydet</a>
+        <a href="{% url 'retrieve' request.user.username %}" id="user_update_cancel_button" class="btn btn-secondary">Vazgeç</a>
+    </div>
+
 </form>
