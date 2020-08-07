@@ -46,6 +46,22 @@
             });
 
 
+            $(this).on('submit', "#user-edit-form", function (e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $data = $this.serialize();
+                var $url = $this.attr('action');
+
+                $.post($url, $data, function (data, status, jqXHR) {
+                    $this.closest('#user_container').html(data.user_retrieve);
+                    alertify.set('notifier', 'position', 'bottom-left');
+                    alertify.notify('Profil bilgileri güncellendi', 'success', 5)
+
+                });
+
+            })
+
+
         })
     </script>
 {% endblock %}

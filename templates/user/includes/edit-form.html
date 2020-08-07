@@ -1,6 +1,6 @@
 {% load widget_tweaks %}
 
-<form method="POST" action="{% url 'edit-user' request.user.username %}">
+<form method="POST" id="user-edit-form" action="{% url 'edit-user' request.user.username %}">
     {% csrf_token %}
     {% for field in form %}
         <div class="form-group">
@@ -19,7 +19,7 @@
         </div>
     {% endfor %}
     <div class="form-group float-right">
-        <a href="#" class="btn btn-primary">Kaydet</a>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
         <a href="{% url 'retrieve' request.user.username %}" id="user_update_cancel_button" class="btn btn-secondary">Vazgeç</a>
     </div>
 
