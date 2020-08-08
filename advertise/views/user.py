@@ -16,7 +16,10 @@ def edit_user(request, username):
         if form.is_valid():
             user = form.save(commit=True)
             user_retrieve = render_to_string('user/includes/retrieve.html', context=user.info, request=request)
-            return JsonResponse(data={'user_retrieve': user_retrieve})
+            return JsonResponse(data={'status': 'success', 'user_retrieve': user_retrieve})
+        else:
+            string_form = render_to_string('user/includes/edit-form.html', context={'form': form}, request=request)
+            return JsonResponse(data={'status': 'fail', 'string_form': string_form})
 
     form = UpdateUserForm(instance=user)
     string_form = render_to_string('user/includes/edit-form.html', context={'form': form}, request=request)

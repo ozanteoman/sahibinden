@@ -32,6 +32,10 @@
                         format: 'DD/MM/YYYY',
                         locale: "tr"
                     });
+
+                    $('#id_phone_number').usPhoneFormat({
+                        format: '(xxx) xxx-xxxx',
+                    });
                 })
             });
 
@@ -53,9 +57,25 @@
                 var $url = $this.attr('action');
 
                 $.post($url, $data, function (data, status, jqXHR) {
-                    $this.closest('#user_container').html(data.user_retrieve);
-                    alertify.set('notifier', 'position', 'bottom-left');
-                    alertify.notify('Profil bilgileri güncellendi', 'success', 5)
+
+                    if (data.status === "success") {
+                        $this.closest('#user_container').html(data.user_retrieve);
+                        alertify.set('notifier', 'position', 'bottom-left');
+                        alertify.notify('Profil bilgileri güncellendi', 'success', 5);
+
+                        return 1;
+                    }
+
+                    $this.closest('#user_container').html(data.string_form);
+
+                    $("#id_birthday").datetimepicker({
+                        format: 'DD/MM/YYYY',
+                        locale: "tr"
+                    });
+
+                    $('#id_phone_number').usPhoneFormat({
+                        format: '(xxx) xxx-xxxx',
+                    });
 
                 });
 
