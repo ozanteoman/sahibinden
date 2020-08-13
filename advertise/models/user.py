@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 from advertise.choices import GenderChoices, MartialStatusChoices, EducationalStatusChoices, ProfessionChoices
+from advertise.helpers import upload_to_user
 
 
 class Interest(models.Model):
@@ -19,6 +20,7 @@ class User(AbstractUser):
     educational_status = models.PositiveIntegerField(null=True, choices=EducationalStatusChoices.CHOICES)
     profession = models.PositiveIntegerField(null=True, choices=ProfessionChoices.CHOICES)
     interests = models.ManyToManyField(to=Interest)
+    image = models.ImageField(null=True, blank=True, upload_to=upload_to_user)
 
     class Meta:
         verbose_name = "User"
